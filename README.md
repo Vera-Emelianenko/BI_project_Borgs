@@ -1,4 +1,4 @@
-# BI_project_Borgs
+# Borgs - new entities in archaeal genomes?
 
 Supervisors:
 - Mikhail Rayko
@@ -10,9 +10,10 @@ Students:
 
 ## Introduction
 
-The main goal of the project was to find, annotate and classify Borg-like entities from publicly available metagenomes.
 
 ## Goal and objectives 
+
+The main goal of the project was to find, annotate and classify Borg-like entities from publicly available metagenomes.
 
 ## Workflow
 
