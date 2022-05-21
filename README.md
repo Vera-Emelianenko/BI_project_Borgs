@@ -16,6 +16,7 @@ Students:
 
 ## Workflow
 
+![alt text](workflow.png)
 
 
 ## Materials and methods
