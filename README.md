@@ -42,16 +42,14 @@ The archaeal metagenomic environmental samples nucleotide sequences of > 20 000 
 
 The GC-content information was extracted from Prodigal output for archaeal metagenomic and Borgs' sequences. The GC-content distribution was plotted with R ggplot2.
 
-![image](https://user-images.githubusercontent.com/56854264/169651457-bd74a5e2-0e39-46fc-a092-e69767b73701.png)
-
 
 ### Identification of the core genes
 
 Orthologous genes were identified in all complete and near-complete Borgs with proteinortho 6.0.33, with the default parameters. The resulting table (`data/borgs.proteinortho.tsv`) was then filtered to contain only orthogroups present in 12 or more genomes, and these proteins were extracted from the fasta files using custom python scripts. Each orthogroup was aligned with MUSCLE v3.8.1551 with the default parameters (`data/alignments/group_0-75.afa.zip`). Only the alignments with > 60% identity were analysed.  
 
-### Functional analysis of cluster proteins 
+### Functional analysis of new Borgs proteins 
 
-Cluster proteins were extracted with custom python scripts using the ncbi id and coordinates in identified clusters, and the obtained fasta file was annotated using the web-version of eggNOG-mapper (http://eggnog-mapper.embl.de/) (`data/cluster_proteins.emapper.annotations.tsv`). The same annotation was performed for the archeal metagenome proteins (`archaea_metagenomes_combined_lin.faa`, `microbiome_proteins.emapper.annotations.tsv`). KEGG enrichment analysis was performed in R using the enricher() function of the clusterProfiler package, with the default options, using archeal metagenome proteins + borg cluster proteins as a universe. Pie-chart visualisations were created using BlastKOALA (https://www.kegg.jp/blastkoala/) with Prokaryotes as taxonomy group and species_prokaryotes as KEGG GENES database. 
+New Borgs proteins were extracted with custom python scripts using the ncbi id and coordinates, and the obtained fasta file was annotated using the web-version of eggNOG-mapper (http://eggnog-mapper.embl.de/) (`data/cluster_proteins.emapper.annotations.tsv`). The same annotation was performed for the archeal metagenome proteins (`archaea_metagenomes_combined_lin.faa`, `microbiome_proteins.emapper.annotations.tsv`). KEGG enrichment analysis was performed in R using the enricher() function of the clusterProfiler package, with the default options, using archeal metagenome proteins + borg cluster proteins as a universe. Pie-chart visualisations were created using BlastKOALA (https://www.kegg.jp/blastkoala/) with Prokaryotes as taxonomy group and species_prokaryotes as KEGG GENES database. 
 
 ### Phylogeny reconstruction
 
@@ -59,18 +57,24 @@ The most represented protein of the complete and incomplete Borgs was derived fr
 
 ## Key results 
 
- - Found BORG-like spatial clusters of genes in archaeal metagenome contigs
- - Functionally annotated BORG-like spatial clusters
- - Identified and annotated BORG core genes
- - Clustered BORG proteins, retrieved homologs from other domains of life and built phylogeny
+ - New elements similar to Borgs were discovered in archaeal metagenomes by protein homology. 
+ -  The core genes of the Borgs were identified, showing that Borgs are related and have some common genes or pathways. The functional and pathway analysis has revealed the enrichment in metabolic genes.
+ 
+ ![image](https://user-images.githubusercontent.com/56854264/169652661-f1fc257f-a2a8-4412-890b-7830889da997.png)
 
-## Conclusions
+ - The comparison of the GC-content of Borgs and archaeal metagenomic samples has shown that Borgs have a very characteristic peak which differs from the wide distribution in archeal sequences.
+ 
+![image](https://user-images.githubusercontent.com/56854264/169651457-bd74a5e2-0e39-46fc-a092-e69767b73701.png)
+ 
+ - The tree based on the homologs of the most representative Borg protein, demonstrates that Borgs, with the one exception, form the separate clade which seems to be related to the archaeal clade. 
+ 
+ ![image](https://user-images.githubusercontent.com/56854264/169652614-f7888eb7-e044-4e01-bdd6-f2a997ce4b1c.png)
 
- - BORGs seem to be distinct entities, related to archaea but separated from them some time ago.
- - The signatures of BORGs are mostly metabolic genes (clusters)
- - The Borgs’ signatures and structure are conserved to the extent allowing to find new putative Borgs
+## Conclusions and further plans
 
-## Further plans
+ The current work shows that Borgs are most probably distinct entitites, having some common signatures (metabolic genes), allowing the discovery of the new Borgs-like elements. Borgs seem to be related to archaea but separated from them some time ago accordingly to the phylogenetic and GC-content analysis. 
+ In the future, the k-mers analysis to confirm Borgs' separation from archaea and exploration of the whole contigs where the new Borg-like elements were found are planned.
+
 
 ## References 
 
@@ -99,6 +103,13 @@ Huerta-Cepas, Damian Szklarczyk, Davide Heller, Ana Hernández-Plaza, Sofia
 K Forslund, Helen Cook, Daniel R Mende, Ivica Letunic, Thomas Rattei, Lars
 J Jensen, Christian von Mering, Peer Bork Nucleic Acids Res. 2019 Jan 8;
 47(Database issue): D309–D314. doi: 10.1093/nar/gky1085 
+
+IQ-TREE 2: New models and efficient methods for phylogenetic inference in the genomic era.  
+ B.Q. Minh, H.A. Schmidt, O. Chernomor, D. Schrempf, M.D. Woodhams, A. von Haeseler, R. Lanfear (2020).
+ Mol. Biol. Evol. https://doi.org/10.1093/molbev/msaa015
+ 
+Interactive Tree Of Life (iTOL) v5: an online tool for phylogenetic tree display and annotation.
+Letunic I and Bork P (2021) Nucleic Acids Res doi: 10.1093/nar/gkab301 
 
 Accelerated Profile HMM Searches. 
 Eddy SR. 2011. PLoS Comput. Biol. 7:e1002195.
