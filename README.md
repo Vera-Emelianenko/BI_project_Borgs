@@ -17,7 +17,7 @@ The main goal of the project was to find, annotate and classify Borg-like entiti
 
 ## Workflow
 
-!Workflow](workflow.png)
+![Workflow](workflow.png)
 
 ## Materials and methods
 
