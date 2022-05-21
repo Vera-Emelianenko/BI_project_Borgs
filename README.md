@@ -1,5 +1,7 @@
 # Borgs - new entities in archaeal genomes?
 
+This project was performed as a spring semester project in the [Bioinformatics Institute](https://bioinf.me/en) (academic year 2021-2022). 
+
 Supervisors:
 - Mikhail Rayko
 - Lavrentii Danilov
