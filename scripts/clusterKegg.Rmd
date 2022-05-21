@@ -1,0 +1,63 @@
+```{r}
+load_packages <- function(package_name)
+  {
+    if (!require(package_name, character.only = TRUE))
+    {
+      install.packages(package_name)
+      library(package_name, character.only = TRUE)
+    }
+    else
+    {
+      library(package_name, character.only = TRUE)
+    }
+        
+  }
+
+Packages = c('dplyr', 'data.table', 'magrittr', 'clusterProfiler') 
+invisible(lapply(Packages, load_packages))
+
+
+rm(list=ls())
+```
+
+
+
+Load the clusters annotation data
+
+```{r}
+egg_cluster_df <- data.table::fread('./cluster_proteins.emapper.annotations.tsv')
+egg_microbiome_df <- data.table::fread('./microbiome_proteins.emapper.annotations.tsv')
+universe_df <- rbind(egg_microbiome_df, egg_cluster_df) %>% dplyr::select(query, KEGG_ko) %>% dplyr::filter(KEGG_ko!='-')
+```
+
+```{r}
+kegg2gene <- universe_df %>% 
+  tidyr::separate(
+    col="KEGG_ko",
+    into=c("k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8"),
+    sep = ",",
+    remove = TRUE,
+    convert = FALSE,
+    extra = "warn",
+    fill = "right") %>%
+  tidyr::gather(
+    key = "kegg_col_num",
+    value = "KEGG_ko",
+    na.rm = TRUE,
+    convert = FALSE, 
+    k1:k8
+) %>% 
+  dplyr::select(KEGG_ko, query)
+
+
+genelist <- egg_cluster_df %>% dplyr::filter(KEGG_ko!='-') %>% .$query
+
+```
+
+```{r}
+kegg_enrich <- enricher(gene = genelist, TERM2GENE=kegg2gene)
+kegg_enrich_df <- kegg_enrich[1:9]
+
+write.csv(kegg_enrich_df, './kegg_enrich_df.csv', quote=FALSE, row.names = FALSE)
+```
+
