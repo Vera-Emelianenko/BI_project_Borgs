@@ -10,6 +10,9 @@ Students:
 
 ## Introduction
 
+In a preprint published on bioarchive in July 2021, authours describe misterious new entities in archeal genomes [(Al-Shayeb et al., 2021.)](https://www.biorxiv.org/content/10.1101/2021.07.10.451761v1.full). According to the authors, these genomic elements are associated with *Methanoperedens* archaea, range in size between ~6,5 - 9 Mb, contain mostly hypothetical proteins and share some structural features. Authours claim that this elements are neither plasmids nor viruses and at the same time they are not the part of the *Methanoperedens* chromosome. The definition of these elements is somewhat ambiguous. Authours define them them the following way: "We infer that these are a new type of archaeal extrachromosomal element with a distinct evolutionary origin. Gene sequence similarity, phylogeny, and local divergence of sequence composition indicate that many of their genes were assimilated from methane-oxidizing Methanoperedens archaea. We refer to these elements as “Borgs”". 
+
+We used the Borgs sequences published in this paper along with the open-source metagenomic data to find out what are Borgs, how can they be defined and whether they have representatived in metagenomic data. 
 
 ## Goal and objectives 
 
