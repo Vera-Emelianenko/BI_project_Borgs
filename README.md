@@ -10,14 +10,13 @@ Students:
 
 ## Introduction
 
-
+The main goal of the project was to find, annotate and classify Borg-like entities from publicly available metagenomes.
 
 ## Goal and objectives 
 
 ## Workflow
 
 ![alt text](workflow.png)
-
 
 ## Materials and methods
 
@@ -27,7 +26,7 @@ Genome sequences of Borgs and their annotated proteins were downloaded from http
 
 ### Nucleotide blast of Borg contigs
 
-
+Complete borg genomes were blasted against the nr/nt database with 'blastn', using 'Archaea environmental samples (taxid:48510)' as organism.
 
 ### Analysing core genes
 
@@ -35,11 +34,22 @@ Orthologous genes were identified in all complete and near-complete Borgs with p
 
 ### Functional analysis of cluster proteins 
 
-Cluster proteins were extracted with custom python scripts using the ncbi id and coordinates in identified clusters, and the obtained fasta file was annotated using the web-version of eggNOG-mapper (http://eggnog-mapper.embl.de/) (`data/cluster_proteins.emapper.annotations.tsv`). The same annotation was performed for the archeal metagenome proteins (`archaea_metagenomes_combined_lin.faa`, `microbiome_proteins.emapper.annotations.tsv`). KEGG enrichment analysis was performed in R using the enricher() function of the clusterProfiler package, with the default options, using archeal metagenome proteins + borg cluster proteins as a universe. 
+Cluster proteins were extracted with custom python scripts using the ncbi id and coordinates in identified clusters, and the obtained fasta file was annotated using the web-version of eggNOG-mapper (http://eggnog-mapper.embl.de/) (`data/cluster_proteins.emapper.annotations.tsv`). The same annotation was performed for the archeal metagenome proteins (`archaea_metagenomes_combined_lin.faa`, `microbiome_proteins.emapper.annotations.tsv`). KEGG enrichment analysis was performed in R using the enricher() function of the clusterProfiler package, with the default options, using archeal metagenome proteins + borg cluster proteins as a universe. Pie-chart visualisations were created using BlastKOALA (https://www.kegg.jp/blastkoala/) with Prokaryotes as taxonomy group and species_prokaryotes as KEGG GENES database. 
 
 ## Key results 
 
-## Conclusion and further plans
+ - Found BORG-like spatial clusters of genes in archaeal metagenome contigs with MMseqs2 extension
+ - Functionally annotated BORG-like spatial clusters
+ - Identified and annotated BORG core genes
+ - Clustered BORG proteins, retrieved homologs from other domains of life and built phylogeny
+
+## Conclusions
+
+ - BORGs seem to be distinct entities, related to archaea but separated from them some time ago.
+ - The signatures of BORGs are mostly metabolic genes (clusters)
+ - The Borgs’ signatures and structure are conserved to the extent allowing to find new putative Borgs
+
+## Further plans
 
 ## References 
 
@@ -78,4 +88,6 @@ Steinegger M & Söding J. 2017. Nat. Biotech. 35, 1026–1028. https://doi.org/1
 Prodigal: prokaryotic gene recognition and translation initiation site identification.
 Hyatt et al. 2010. BMC Bioinformatics 11, 119. https://doi.org/10.1186/1471-2105-11-119.
 
-
+BlastKOALA and GhostKOALA: KEGG tools for functional characterization of genome and metagenome sequences. 
+Reference: Kanehisa, M., Sato, Y., and Morishima, K. 2016. 
+J. Mol. Biol. 428, 726-731
