@@ -34,7 +34,18 @@ Genome sequences of Borgs and their annotated proteins were downloaded from http
 
 Complete borg genomes were blasted against the nr/nt database with 'blastn', using 'Archaea environmental samples (taxid:48510)' as organism.
 
-### Analysing core genes
+### Finding new Borgs
+
+The archaeal metagenomic environmental samples nucleotide sequences of > 20 000 bp were downloaded from NCBI (by taxonomy ID: 48510). The protein sequences were obtained with Prodigal. Complete and incomplete Borg genomes were downloaded and annotated with Prodigal. The resulted proteins were used for searching against archaeal metagenomic proteome with MMseqs2 profile search.
+
+### GC-content comparison
+
+The GC-content information was extracted from Prodigal output for archaeal metagenomic and Borgs' sequences. The GC-content distribution was plotted with R ggplot2.
+
+![image](https://user-images.githubusercontent.com/56854264/169651457-bd74a5e2-0e39-46fc-a092-e69767b73701.png)
+
+
+### Identification of the core genes
 
 Orthologous genes were identified in all complete and near-complete Borgs with proteinortho 6.0.33, with the default parameters. The resulting table (`data/borgs.proteinortho.tsv`) was then filtered to contain only orthogroups present in 12 or more genomes, and these proteins were extracted from the fasta files using custom python scripts. Each orthogroup was aligned with MUSCLE v3.8.1551 with the default parameters (`data/alignments/group_0-75.afa.zip`). Only the alignments with > 60% identity were analysed.  
 
@@ -42,9 +53,13 @@ Orthologous genes were identified in all complete and near-complete Borgs with p
 
 Cluster proteins were extracted with custom python scripts using the ncbi id and coordinates in identified clusters, and the obtained fasta file was annotated using the web-version of eggNOG-mapper (http://eggnog-mapper.embl.de/) (`data/cluster_proteins.emapper.annotations.tsv`). The same annotation was performed for the archeal metagenome proteins (`archaea_metagenomes_combined_lin.faa`, `microbiome_proteins.emapper.annotations.tsv`). KEGG enrichment analysis was performed in R using the enricher() function of the clusterProfiler package, with the default options, using archeal metagenome proteins + borg cluster proteins as a universe. Pie-chart visualisations were created using BlastKOALA (https://www.kegg.jp/blastkoala/) with Prokaryotes as taxonomy group and species_prokaryotes as KEGG GENES database. 
 
+### Phylogeny reconstruction
+
+The most represented protein of the complete and incomplete Borgs was derived from the biggest protein cluster. The protein clusters were obtained with `mmseqs cluster` with the 0.8 sequence identity threshold (`--min-seq-id 0.8`). The cluster representative protein was used to blast against bacteria/archaea/eukaryotes/viruses (blastp, "nr/nt database", "include <one of the taxa>"). From the blast results, up to 10 matches per taxon were extracted. Then protein members of the biggest Borgs' cluster (excluding paralogs) and the blastp results were aligned with EBI Muscle (https://www.ebi.ac.uk/Tools/services/rest/muscle). The tree was build from the alignment with iqtree (http://iqtree.cibiv.univie.ac.at) and visualized with iTOL (https://itol.embl.de/tree/1347638133273481652347057).
+
 ## Key results 
 
- - Found BORG-like spatial clusters of genes in archaeal metagenome contigs with MMseqs2 extension
+ - Found BORG-like spatial clusters of genes in archaeal metagenome contigs
  - Functionally annotated BORG-like spatial clusters
  - Identified and annotated BORG core genes
  - Clustered BORG proteins, retrieved homologs from other domains of life and built phylogeny
