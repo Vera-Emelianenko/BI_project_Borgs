@@ -60,6 +60,10 @@ bioRxiv (2021). https://doi.org/10.1101/2021.07.10.451761
 
 ggKbase: https://ggkbase.berkeley.edu/
 
+Database resources of the national center for biotechnology information.
+Sayers, Eric W., Tanya Barrett, Dennis A. Benson, Evan Bolton, Stephen H. Bryant, Kathi Canese, Vyacheslav Chetvernin et al.
+Nucleic acids research 39, no. suppl_1 (2010): D38-D51. DOI: 10.1093/nar/gkab1112
+
 MUSCLE: multiple sequence alignment with high accuracy and high throughput. 
 Edgar, R.C., 2004. 
 Nucleic acids research, 32(5), pp.1792-1797. doi: 10.1093/nar/gkh340
