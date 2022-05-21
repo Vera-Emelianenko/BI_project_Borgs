@@ -66,7 +66,7 @@ The most represented protein of the complete and incomplete Borgs was derived fr
  
 ![image](https://user-images.githubusercontent.com/56854264/169651457-bd74a5e2-0e39-46fc-a092-e69767b73701.png)
  
- - The tree based on the homologs of the most representative Borg protein, demonstrates that Borgs, with the one exception, form the separate clade which seems to be related to the archaeal clade. 
+ - The tree based on the homologs of the most representative Borg protein (ferredoxin family protein), demonstrates that Borgs, with the one exception, form the separate clade which seems to be related to the archaeal clade. 
  
  ![image](https://user-images.githubusercontent.com/56854264/169652614-f7888eb7-e044-4e01-bdd6-f2a997ce4b1c.png)
 
